@@ -1,0 +1,23 @@
+{
+  "name": "strip-js",
+  "version": "0.0.1",
+  "description": "Strips out all JavaScript code from some HTML text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivanshu3/strip-js.git"
+  },
+  "author": "Shivanshu Goyal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shivanshu3/strip-js/issues"
+  },
+  "homepage": "https://github.com/shivanshu3/strip-js#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "sanitize-html": "^1.13.0"
+  }
+}
