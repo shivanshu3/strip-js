@@ -1,11 +1,13 @@
 # strip-js
 NPM Module which strips out all JavaScript code from some HTML text
 
-This module performs the following tasks
+This module performs the following tasks:
 - Sanitizes HTML
 - Removes script tags
 - Removes attributes such as "onclick", "onerror", etc. which contain JavaScript code
 - Removes "href" attributes which contain JavaScript code
+
+An example use case of this module is to sanitize HTML emails before displaying them in a browser to prevent cross-site scripting.
 
 ## Installation
 `npm install strip-js`
@@ -20,7 +22,7 @@ The following input HTML ...
       <a href="javascript:stealSession(document.cookie)" target="_blank">Dangerous Link</a>
       <a href="http://www.google.com" target="_blank">Safe Link</a>
       <p>
-         This is some text in a p tag, but the p tag isn't closed!
+         This is some text in a p tag, but the p tag is not closed!
    </body>
 </html>
 ```
@@ -33,7 +35,7 @@ The following input HTML ...
       <a target="_blank">Dangerous Link</a>
       <a href="http://www.google.com" target="_blank">Safe Link</a>
       <p>
-         This is some text in a p tag, but the p tag isn't closed!
+         This is some text in a p tag, but the p tag is not closed!
       </p>
    </body>
 </html>
@@ -42,6 +44,7 @@ The following input HTML ...
 Using this module is easy!
 ```javascript
 var stripJs = require('strip-js');
-var html = fs.readFileSync('./webpage.html');
+var fs = require('fs');
+var html = fs.readFileSync('./webpage.html').toString();
 var safeHtml = stripJs(html); // It returns plain HTML text
 ```

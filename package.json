@@ -19,5 +19,18 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "sanitize-html": "^1.13.0"
-  }
+  },
+  "keywords": [
+    "html",
+    "strip",
+    "out",
+    "javascript",
+    "security",
+    "display",
+    "email",
+    "cross-site",
+    "cross",
+    "site",
+    "scripting"
+  ]
 }
