@@ -38,3 +38,10 @@ The following input HTML ...
    </body>
 </html>
 ```
+
+Using this module is easy!
+```javascript
+var stripJs = require('strip-js');
+var html = fs.readFileSync('./webpage.html');
+var safeHtml = stripJs(html); // It returns plain HTML text
+```
