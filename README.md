@@ -1,4 +1,7 @@
 # strip-js
+
+[![NPM Version][npm-image]][npm-url]
+
 NPM Module which strips out all JavaScript code from some HTML text
 
 This module performs the following tasks:
@@ -48,3 +51,6 @@ var fs = require('fs');
 var html = fs.readFileSync('./webpage.html').toString();
 var safeHtml = stripJs(html); // It returns plain HTML text
 ```
+
+[npm-url]: https://www.npmjs.com/package/strip-js
+[npm-image]: https://img.shields.io/npm/v/strip-js.svg?style=flat
