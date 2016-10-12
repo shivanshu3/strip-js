@@ -1,6 +1,7 @@
 # strip-js
 
 [![NPM Version][npm-image]][npm-url]
+[![Travis Build][travis-image]][travis-url]
 
 NPM Module which strips out all JavaScript code from some HTML text
 
@@ -54,3 +55,5 @@ var safeHtml = stripJs(html); // It returns plain HTML text
 
 [npm-url]: https://www.npmjs.com/package/strip-js
 [npm-image]: https://img.shields.io/npm/v/strip-js.svg?style=flat
+[travis-url]: https://travis-ci.org/shivanshu3/strip-js
+[travis-image]: https://img.shields.io/travis/shivanshu3/strip-js.svg
