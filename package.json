@@ -1,6 +1,6 @@
 {
   "name": "strip-js",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Strips out all JavaScript code from some HTML text",
   "main": "index.js",
   "scripts": {
