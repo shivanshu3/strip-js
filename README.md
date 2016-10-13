@@ -11,7 +11,7 @@ This module performs the following tasks:
 - Removes attributes such as "onclick", "onerror", etc. which contain JavaScript code
 - Removes "href" attributes which contain JavaScript code
 
-An example use case of this module is to sanitize HTML emails before displaying them in a browser to prevent cross-site scripting.
+An example use case of this module is to sanitize HTML emails before displaying them in a browser to prevent cross-site scripting attacks.
 
 ## Installation
 `npm install strip-js`

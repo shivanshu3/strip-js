@@ -22,16 +22,14 @@
   },
   "keywords": [
     "html",
-    "strip",
-    "out",
     "javascript",
     "security",
-    "display",
     "email",
     "cross-site",
     "cross",
     "site",
-    "scripting"
+    "scripting",
+    "attack"
   ],
   "devDependencies": {
     "htmlclean": "^2.7.7"
