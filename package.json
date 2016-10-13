@@ -18,6 +18,7 @@
   "homepage": "https://github.com/shivanshu3/strip-js#readme",
   "dependencies": {
     "cheerio": "^0.22.0",
+    "htmlclean": "^2.7.7",
     "sanitize-html": "^1.13.0"
   },
   "keywords": [
