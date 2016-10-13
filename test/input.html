@@ -1,0 +1,10 @@
+<html>
+   <body>
+      <script src="foo.js"></script>
+      <img src="image.gif" onerror="stealSession(document.cookie)" foo="bar">
+      <a href="javascript:stealSession(document.cookie)" target="_blank">Dangerous Link</a>
+      <a href="http://www.google.com" target="_blank">Safe Link</a>
+      <p>
+      This is some text in a p tag, but the p tag is not closed!
+   </body>
+</html>
