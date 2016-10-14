@@ -16,6 +16,10 @@ An example use case of this module is to sanitize HTML emails before displaying 
 ## Installation
 `npm install strip-js`
 
+This module can also be used from the command line. Install it globally using the following command:
+
+`sudo npm install -g strip-js`
+
 ## Usage
 The following input HTML ...
 ```html
@@ -51,6 +55,11 @@ var stripJs = require('strip-js');
 var fs = require('fs');
 var html = fs.readFileSync('./webpage.html').toString();
 var safeHtml = stripJs(html); // It returns plain HTML text
+```
+
+For command line usage, install it globally. It reads the input HTML from its stdin and outputs the result to stdout.
+```bash
+strip-js < input.html
 ```
 
 [npm-url]: https://www.npmjs.com/package/strip-js
