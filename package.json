@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "Strips out all JavaScript code from some HTML text",
   "main": "index.js",
+  "bin": {
+     "strip-js": "./cli.js"
+  },
   "scripts": {
     "test": "node test/test.js"
   },
