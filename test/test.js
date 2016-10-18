@@ -30,6 +30,12 @@ var processedHtml = stripJs(inputHtml);
 processedHtml = htmlclean(processedHtml);
 assert(processedHtml === '<form foo="bar"></form>');
 
+// The action attribute should be not be deleted from non form tags:
+var inputHtml = '<p action="steal_cookies.php"></p>';
+var processedHtml = stripJs(inputHtml);
+processedHtml = htmlclean(processedHtml);
+assert(processedHtml === '<p action="steal_cookies.php"></p>');
+
 // TODO: More test cases?
 
 console.log('All tests pass.');
