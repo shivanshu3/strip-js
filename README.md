@@ -10,6 +10,7 @@ This module performs the following tasks:
 - Removes script tags
 - Removes attributes such as "onclick", "onerror", etc. which contain JavaScript code
 - Removes "href" attributes which contain JavaScript code
+- Removes "action" attributes from form tags
 
 An example use case of this module is to sanitize HTML emails before displaying them in a browser to prevent cross-site scripting attacks.
 
@@ -29,6 +30,7 @@ The following input HTML ...
       <img src="image.gif" onerror="stealSession(document.cookie)" foo="bar">
       <a href="javascript:stealSession(document.cookie)" target="_blank">Dangerous Link</a>
       <a href="http://www.google.com" target="_blank">Safe Link</a>
+      <form action="steal_cookies.php" foo="bar"></form>
       <p>
          This is some text in a p tag, but the p tag is not closed!
    </body>
@@ -42,6 +44,7 @@ The following input HTML ...
       <img src="image.gif" foo="bar">
       <a target="_blank">Dangerous Link</a>
       <a href="http://www.google.com" target="_blank">Safe Link</a>
+      <form foo="bar"></form>
       <p>
          This is some text in a p tag, but the p tag is not closed!
       </p>
