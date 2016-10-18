@@ -24,6 +24,12 @@ assert(processedHtml === '<html><body> <img src="image.gif" foo="bar"> ' +
    'target="_blank">Safe Link</a><p> This is some text in a p tag, but the p ' +
    'tag is not closed!</p></body></html>');
 
+// The action attribute should be deleted from form tags but no other attributes:
+var inputHtml = '<form action="steal_cookies.php" foo="bar"></form>';
+var processedHtml = stripJs(inputHtml);
+processedHtml = htmlclean(processedHtml);
+assert(processedHtml === '<form foo="bar"></form>');
+
 // TODO: More test cases?
 
 console.log('All tests pass.');

@@ -41,6 +41,12 @@ var stripJs = function(htmlContent) {
       }
    }
 
+   // Remove 'action' attributes from 'form' tags:
+   var formElements = $('form');
+   for (var i = 0; i < formElements.length; i++) {
+      domElement.removeAttr('action');
+   }
+
    return $.html();
 }
 
