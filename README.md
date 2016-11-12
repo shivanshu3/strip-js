@@ -1,5 +1,7 @@
 # strip-js
 
+<img src="http://shivanshu.ca/myfiles/strip-js-logo.svg" width="100" align="right" />
+
 [![NPM Version][npm-image]][npm-url]
 [![Travis Build][travis-image]][travis-url]
 
