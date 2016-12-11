@@ -35,7 +35,7 @@ var stripJs = function(htmlContent) {
 
          // Remove href attributes which contain JS
          if ((/href/i.test(attrib)) &&
-             (/^\s*javascript/.test(domElement.attr(attrib)))) {
+             (/^\s*javascript/i.test(domElement.attr(attrib)))) {
             domElement.removeAttr(attrib);
          }
       }
