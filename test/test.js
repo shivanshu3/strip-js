@@ -36,6 +36,10 @@ var processedHtml = stripJs(inputHtml);
 processedHtml = htmlclean(processedHtml);
 assert(processedHtml === '<p action="steal_cookies.php"></p>');
 
+// Case sensitivity and whitespace tests:
+assert(stripJs('<A HREF = " JavaScript : console.log(2) ">') == '<a></a>');
+assert(stripJs('<P ONClick="console.log(2)" Foo="Bar">') == '<p foo="Bar"></p>');
+
 // TODO: More test cases?
 
 console.log('All tests pass.');
