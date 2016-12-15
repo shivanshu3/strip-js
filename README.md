@@ -68,7 +68,7 @@ strip-js < input.html
 ```
 ## Warnings
 
-Some old browsers have XSS vulnerabilities in CSS, as mentioned in the <a href="https://code.google.com/archive/p/browsersec/wikis/Part1.wiki">browser security handbook</a>:
+Some old browsers have XSS vulnerabilities in CSS, as mentioned in the <a href="https://code.google.com/archive/p/browsersec/wikis/Part1.wiki" target="_blank">browser security handbook</a>:
 > The risk of JavaScript execution. As a little-known feature, some CSS implementations permit JavaScript code to be embedded in stylesheets. There are at least three ways to achieve this goal: by using the expression(...) directive, which gives the ability to evaluate arbitrary JavaScript statements and use their value as a CSS parameter; by using the url('javascript:...') directive on properties that support it; or by invoking browser-specific features such as the -moz-binding mechanism of Firefox.
 
 This module does not remove any JavaScript from CSS, so it is recommended that you enforce one of the following browsers in your web app:
