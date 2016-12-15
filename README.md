@@ -66,6 +66,20 @@ For command line usage, install it globally. It reads the input HTML from its st
 ```bash
 strip-js < input.html
 ```
+## Warnings
+
+Some old browsers have XSS vulnerabilities in CSS, as mentioned in the browser security handbook:
+> The risk of JavaScript execution. As a little-known feature, some CSS implementations permit JavaScript code to be embedded in stylesheets. There are at least three ways to achieve this goal: by using the expression(...) directive, which gives the ability to evaluate arbitrary JavaScript statements and use their value as a CSS parameter; by using the url('javascript:...') directive on properties that support it; or by invoking browser-specific features such as the -moz-binding mechanism of Firefox.
+
+This module does not remove any JavaScript from CSS, so it is recommended that you enforce one of the following browsers in your web app:
+- Edge
+- IE11
+- FF3
+- Safari
+- Chrome
+- Android
+
+All these browsers are safe in that they don't allow JavaScript execution in CSS. Please feel free to add more browsers to this list after testing them, and send a pull request.
 
 [npm-url]: https://www.npmjs.com/package/strip-js
 [npm-image]: https://img.shields.io/npm/v/strip-js.svg?style=flat
