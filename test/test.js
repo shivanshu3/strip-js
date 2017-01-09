@@ -40,6 +40,22 @@ assert(processedHtml === '<p action="steal_cookies.php"></p>');
 assert(stripJs('<A HREF = " JavaScript : console.log(2) ">') == '<a></a>');
 assert(stripJs('<P ONClick="console.log(2)" Foo="Bar">') == '<p foo="Bar"></p>');
 
+// URL schemes for images:
+// Only the allowed ones should work
+// Also a src attribute with no scheme should work as well (first test case):
+assert(stripJs('<img src="foo.jpg">') ==
+   '<img src="foo.jpg">');
+assert(stripJs('<img src="http://example.com">') ==
+   '<img src="http://example.com">');
+assert(stripJs('<img src="https://example.com">') ==
+   '<img src="https://example.com">');
+assert(stripJs('<img src="data:foo">') ==
+   '<img src="data:foo">');
+assert(stripJs('<img src="cid:foo">') ==
+   '<img src="cid:foo">');
+assert(stripJs('<img src="foo:bar">') ==
+   '<img>');
+
 // TODO: More test cases?
 
 console.log('All tests pass.');

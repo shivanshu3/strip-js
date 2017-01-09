@@ -11,7 +11,10 @@ var stripJs = function(htmlContent) {
    // Sanitize the HTML first:
    htmlContent = sanitizeHtml(htmlContent, {
       allowedTags: false,
-      allowedAttributes: false
+      allowedAttributes: false,
+      allowedSchemesByTag: {
+         img: ['http', 'https', 'data', 'cid']
+      }
    });
 
    var $ = cheerio.load(htmlContent);
