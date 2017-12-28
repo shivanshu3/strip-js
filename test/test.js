@@ -55,6 +55,10 @@ assert(stripJs('<img src="cid:foo">') ==
    '<img src="cid:foo">');
 assert(stripJs('<img src="foo:bar">') ==
    '<img>');
+   
+// Scripts cannot be injected through links
+assert.equal(stripJs('<link rel="preload" href="https://adservice.google.com.sg/adsid/' +
+  'integrator.js?domain=sourceforge.net" as="script">'), '');
 
 // TODO: More test cases?
 
