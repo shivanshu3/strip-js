@@ -49,6 +49,9 @@ var stripJs = function(htmlContent) {
    for (var i = 0; i < formElements.length; i++) {
       domElement.removeAttr('action');
    }
+   
+   // Remove link elements with 'as' attribute equalling to 'script'
+   $('link[as="script"]').remove();
 
    return $.html();
 }
