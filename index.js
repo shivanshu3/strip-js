@@ -9,6 +9,8 @@ var stripJs = function(htmlContent) {
    }
 
    // Sanitize the HTML first:
+   var doctypeRegex = /<!DOCTYPE .*?>/i;
+   var doctypes = htmlContent.match(doctypeRegex);
    htmlContent = sanitizeHtml(htmlContent, {
       allowedTags: false,
       allowedAttributes: false,
@@ -16,6 +18,11 @@ var stripJs = function(htmlContent) {
          img: ['http', 'https', 'data', 'cid']
       }
    });
+   
+   // Preserve doctype
+   if (doctypes && doctypes.length) {
+     htmlContent = doctypes[0] + htmlContent
+   }
 
    var $ = cheerio.load(htmlContent);
 
