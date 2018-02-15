@@ -16,7 +16,7 @@ assert(stripJs('  foo bar  ') === '  foo bar  ');
 // Load an HTML file and strip out all JS, and remove whitespace from it
 // While preserving its doctype
 var inputHtml = fs.readFileSync('./test/input.html').toString();
-var processedHtml = stripJs(inputHtml);
+var processedHtml = stripJs(inputHtml, { preserveDoctypes: true });
 processedHtml = htmlclean(processedHtml);
 
 // and it shouldn't have any JS in it:

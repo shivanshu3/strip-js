@@ -1,7 +1,11 @@
 var cheerio = require('cheerio');
 var sanitizeHtml = require('sanitize-html');
+var defaultOpts = { preserveDoctypes: false };
+var doctypeRegex = /^\s*<!DOCTYPE .*?>/i;
 
-var stripJs = function(htmlContent) {
+var stripJs = function(htmlContent, opts) {
+   opts = Object.assign({}, defaultOpts, opts);
+  
    // Basic input validation:
    if ((htmlContent == undefined) || (htmlContent == null) ||
        (typeof htmlContent != 'string')) {
@@ -9,8 +13,11 @@ var stripJs = function(htmlContent) {
    }
 
    // Sanitize the HTML first:
-   var doctypeRegex = /<!DOCTYPE .*?>/i;
-   var doctypes = htmlContent.match(doctypeRegex);
+   var doctypes;
+   if (opts.preserveDoctypes) {
+      doctypes = htmlContent.match(doctypeRegex);
+   }
+   
    htmlContent = sanitizeHtml(htmlContent, {
       allowedTags: false,
       allowedAttributes: false,

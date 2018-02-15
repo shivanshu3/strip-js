@@ -62,6 +62,8 @@ var html = fs.readFileSync('./webpage.html').toString();
 var safeHtml = stripJs(html); // It returns plain HTML text
 ```
 
+If you need to preserve doctypes, use `var safeHtml = stripJs(html, { preserveDoctypes: true });`. `preserveDoctypes` defaults to false.
+
 For command line usage, install it globally. It reads the input HTML from its stdin and outputs the result to stdout.
 ```bash
 strip-js < input.html
