@@ -25,6 +25,11 @@ assert(processedHtml === '<!DOCTYPE html><html><body> <img src="image.gif" foo="
    'target="_blank">Safe Link</a><p> This is some text in a p tag, but the p ' +
    'tag is not closed!</p></body></html>');
 
+// Strip out some JS and also remove the DOCTYPE:
+// Also test that the preserveDoctypes option defaults to false:
+assert(stripJs('<!DOCTYPE html><html><body><a href="javascript:console.log(2)"></a></body></html>')
+   === '<html><body><a></a></body></html>');
+
 // The action attribute should be deleted from form tags but no other attributes:
 var inputHtml = '<form action="steal_cookies.php" foo="bar"></form>';
 var processedHtml = stripJs(inputHtml);
