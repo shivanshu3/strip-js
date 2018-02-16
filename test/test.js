@@ -13,13 +13,14 @@ assert(stripJs(undefined) === '');
 // Test non HTML strings with whitespace:
 assert(stripJs('  foo bar  ') === '  foo bar  ');
 
-// Load an HTML file and strip out all JS, and remove whitespace from it:
+// Load an HTML file and strip out all JS, and remove whitespace from it
+// While preserving its doctype
 var inputHtml = fs.readFileSync('./test/input.html').toString();
-var processedHtml = stripJs(inputHtml);
+var processedHtml = stripJs(inputHtml, { preserveDoctypes: true });
 processedHtml = htmlclean(processedHtml);
 
 // and it shouldn't have any JS in it:
-assert(processedHtml === '<html><body> <img src="image.gif" foo="bar"> ' +
+assert(processedHtml === '<!DOCTYPE html><html><body> <img src="image.gif" foo="bar"> ' +
    '<a target="_blank">Dangerous Link</a> <a href="http://www.google.com" ' +
    'target="_blank">Safe Link</a><p> This is some text in a p tag, but the p ' +
    'tag is not closed!</p></body></html>');
@@ -59,7 +60,5 @@ assert(stripJs('<img src="foo:bar">') ==
 // Scripts cannot be injected through links
 assert.equal(stripJs('<link rel="preload" href="https://adservice.google.com.sg/adsid/' +
   'integrator.js?domain=sourceforge.net" as="script">'), '');
-
-// TODO: More test cases?
 
 console.log('All tests pass.');
