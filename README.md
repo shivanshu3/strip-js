@@ -5,6 +5,8 @@
 [![NPM Version][npm-image]][npm-url]
 [![Travis Build][travis-image]][travis-url]
 
+# [DEPRECATED] This repository has been deprecated. I don't have enough time to work on it.
+
 NPM Module which strips out all JavaScript code from some HTML text
 
 This module performs the following tasks:
