@@ -33,8 +33,9 @@ var stripJs = function(htmlContent, opts) {
 
    var $ = cheerio.load(htmlContent);
 
-   // Remove all script tags:
-   $('script').remove();
+   // Do not remove all script tags, will alter DOM tree, css nth-node operations:
+   //$('script').remove();
+   $('script').html("");
 
    // Remove all attributes which contain javascipt:
    var domElements = $('*');
@@ -58,14 +59,25 @@ var stripJs = function(htmlContent, opts) {
       }
    }
 
-   // Remove 'action' attributes from 'form' tags:
+   // Remove 'src' attributes from 'script' tags only.
+   // Removing script tag from <body> alters the DOM tree and css nth-node operations, 
+   // because it no logner matches the original html document
+   var scriptSrcElements = $('script[src]');
+   for (var i = 0; i < scriptSrcElements.length; i++) {
+      var domElement = $(scriptSrcElements[i]);
+          domElement.removeAttr('src');
+   }
+
+   // Remove 'action','method' attributes from 'form' tags:
    var formElements = $('form');
    for (var i = 0; i < formElements.length; i++) {
-      domElement.removeAttr('action');
+      var domElement = $(formElements[i]);
+          domElement.removeAttr('action');
+          domElement.removeAttr('method');
    }
    
    // Remove link elements with 'as' attribute equalling to 'script'
-   $('link[as="script"]').remove();
+   $('link[as="script"]').remove(); //TODO: could potentially alter DOM tree, maybe just remove 'as' attrb
 
    return $.html();
 }
